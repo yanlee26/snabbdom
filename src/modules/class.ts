@@ -14,13 +14,13 @@ function updateClass(oldVnode: VNode, vnode: VNode): void {
   klass = klass || {};
 
   for (name in oldClass) {
-    if (!klass[name]) {
+    if (!klass[name]) {//clear
       elm.classList.remove(name);
     }
   }
   for (name in klass) {
     cur = klass[name];
-    if (cur !== oldClass[name]) {
+    if (cur !== oldClass[name]) {//if cur  exist then add , else remove(I think here need't remove)
       (elm.classList as any)[cur ? 'add' : 'remove'](name);
     }
   }

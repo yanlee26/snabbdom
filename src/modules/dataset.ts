@@ -21,7 +21,7 @@ function updateDataset(oldVnode: VNode, vnode: VNode): void {
     if (!dataset[key]) {
       if (d) {
         if (key in d) {
-          delete d[key];
+          delete d[key];//Reflect.delete seems better
         }
       } else {
         elm.removeAttribute('data-' + key.replace(CAPS_REGEX, '-$&').toLowerCase());

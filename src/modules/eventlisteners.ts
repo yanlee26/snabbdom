@@ -13,8 +13,8 @@ function invokeHandler(handler: any, vnode?: VNode, event?: Event): void {
     handler.call(vnode, event, vnode);
   } else if (typeof handler === "object") {
     // call handler with arguments
-    if (typeof handler[0] === "function") {
-      // special case for single argument for performance
+    if (typeof handler[0] === "function") {//???
+      // special case for single argument for performance 
       if (handler.length === 2) {
         handler[0].call(vnode, handler[1], event, vnode);
       } else {

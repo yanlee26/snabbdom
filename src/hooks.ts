@@ -1,5 +1,5 @@
 import {VNode} from './vnode';
-
+// lifecycle hooks:from birth to die
 export type PreHook = () => any;
 export type InitHook = (vNode: VNode) => any;
 export type CreateHook = (emptyVNode: VNode, vNode: VNode) => any;
