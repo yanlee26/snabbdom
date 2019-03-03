@@ -4,7 +4,7 @@ import {Hooks} from './hooks';
 import vnode, {VNode, VNodeData, Key} from './vnode';
 import * as is from './is';
 import htmlDomApi, {DOMAPI} from './htmldomapi';
-
+// core code
 function isUndef(s: any): boolean { return s === undefined; }
 function isDef(s: any): boolean { return s !== undefined; }
 

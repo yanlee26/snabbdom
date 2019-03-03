@@ -21,6 +21,7 @@ function createElement(tagName: any): HTMLElement {
 }
 
 function createElementNS(namespaceURI: string, qualifiedName: string): Element {
+  // 创建一个具有指定的命名空间URI和限定名称的元素。
   return document.createElementNS(namespaceURI, qualifiedName);
 }
 

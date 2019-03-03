@@ -24,7 +24,7 @@ export function h(sel: string, data: VNodeData, children: VNodeChildren): VNode;
 export function h(sel: any, b?: any, c?: any): VNode {
   var data: VNodeData = {}, children: any, text: any, i: number;
   if (c !== undefined) {
-    data = b;
+    data = b;// node type
     if (is.array(c)) { children = c; }
     else if (is.primitive(c)) { text = c; }
     else if (c && c.sel) { children = [c]; }
@@ -39,7 +39,7 @@ export function h(sel: any, b?: any, c?: any): VNode {
       if (is.primitive(children[i])) children[i] = vnode(undefined, undefined, undefined, children[i], undefined);
     }
   }
-  if (
+  if (//svg handler...
     sel[0] === 's' && sel[1] === 'v' && sel[2] === 'g' &&
     (sel.length === 3 || sel[3] === '.' || sel[3] === '#')
   ) {

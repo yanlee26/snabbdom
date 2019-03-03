@@ -4,7 +4,7 @@ import {Module} from './module';
 export type Hero = { id: string }
 
 var raf = (typeof window !== 'undefined' && window.requestAnimationFrame) || setTimeout;
-var nextFrame = function(fn: any) { raf(function() { raf(fn); }); };
+var nextFrame = function(fn: any) { raf(function() { raf(fn); }); };//for  performance or sth else...
 
 function setNextFrame(obj: any, prop: string, val: any): void {
   nextFrame(function() { obj[prop] = val; });
@@ -12,7 +12,7 @@ function setNextFrame(obj: any, prop: string, val: any): void {
 
 function getTextNodeRect(textNode: Text): ClientRect | undefined {
   var rect: ClientRect | undefined;
-  if (document.createRange) {
+  if (document.createRange) {// for normal browsers
     var range = document.createRange();
     range.selectNodeContents(textNode);
     if (range.getBoundingClientRect) {

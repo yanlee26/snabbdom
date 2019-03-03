@@ -14,7 +14,7 @@ export interface ThunkFn {
   (sel: string, fn: Function, args: Array<any>): Thunk;
   (sel: string, key: any, fn: Function, args: Array<any>): Thunk;
 }
-
+// vnode's data
 function copyToThunk(vnode: VNode, thunk: VNode): void {
   thunk.elm = vnode.elm;
   (vnode.data as VNodeData).fn = (thunk.data as VNodeData).fn;
@@ -34,6 +34,7 @@ function init(thunk: VNode): void {
 function prepatch(oldVnode: VNode, thunk: VNode): void {
   let i: number, old = oldVnode.data as VNodeData, cur = thunk.data as VNodeData;
   const oldArgs = old.args, args = cur.args;
+  // only copy those diffs...
   if (old.fn !== cur.fn || (oldArgs as any).length !== (args as any).length) {
     copyToThunk((cur.fn as any).apply(undefined, args), thunk);
     return;
@@ -44,6 +45,7 @@ function prepatch(oldVnode: VNode, thunk: VNode): void {
       return;
     }
   }
+  // copys all
   copyToThunk(oldVnode, thunk);
 }
 

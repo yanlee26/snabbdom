@@ -17,7 +17,7 @@ export function toVNode(node: Node, domApi?: DOMAPI): VNode {
     const elmChildren = node.childNodes;
     for (i = 0, n = elmAttrs.length; i < n; i++) {
       name = elmAttrs[i].nodeName;
-      if (name !== 'id' && name !== 'class') {
+      if (name !== 'id' && name !== 'class') {//filter id or class
         attrs[name] = elmAttrs[i].nodeValue;
       }
     }
